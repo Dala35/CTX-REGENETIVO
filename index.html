@@ -1,110 +1,100 @@
-  <!DOCTYPE html><html lang="pt">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CTX‑REGENERATIVO™</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CTX‑REGENETIVO™ – Simulador Integrado</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      background: #f4f4f4;
       margin: 0;
       padding: 0;
-    }
-    header {
-      background-color: #1f8b4c;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
+      color: #222;
     }
     .container {
-      max-width: 900px;
-      margin: auto;
+      max-width: 720px;
+      margin: 40px auto;
       padding: 20px;
-      background: white;
+      background: #fff;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .section {
-      margin-bottom: 30px;
     }
     h1, h2 {
       color: #1f8b4c;
     }
     label {
       display: block;
-      margin: 10px 0;
+      margin-top: 15px;
     }
-    button, .btn {
-      padding: 10px 20px;
-      margin-top: 20px;
-      border: none;
-      background-color: #1f8b4c;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      display: inline-block;
+    input[type="checkbox"] {
+      margin-right: 8px;
     }
     .result {
-      font-weight: bold;
+      margin-top: 25px;
       font-size: 1.2em;
+      font-weight: bold;
+      text-align: center;
+    }
+    button {
       margin-top: 20px;
+      padding: 12px;
+      background: #1f8b4c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
     }
-    .tooltip {
-      border-bottom: 1px dotted #000;
-      cursor: help;
+    button:hover {
+      background: #166c3b;
     }
-    .lang-switch {
-      margin-top: 30px;
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CTX‑REGENERATIVO™</h1>
-    <p>Simulador de Terapia Epigenética Condicional para Hemoglobina Fetal</p>
-  </header>
   <div class="container">
-    <div class="section">
-      <h2>Simulador BioAI‑CTX</h2>
-      <label><input type="checkbox" id="il6"> IL‑6 Elevada <span class="tooltip" title="Indica inflamação ativa que pode ativar a terapia.">[?]</span></label>
-      <label><input type="checkbox" id="tnf"> TNF‑α Elevado <span class="tooltip" title="Fator de necrose tumoral alfa – marcador inflamatório.">[?]</span></label>
-      <label><input type="checkbox" id="hbf"> HbF &lt; 5% <span class="tooltip" title="Indica baixa expressão de hemoglobina fetal.">[?]</span></label>
-      <label><input type="checkbox" id="mosaico"> Risco de Mosaico Genético Elevado <span class="tooltip" title="Impede ativação caso risco genético esteja presente.">[?]</span></label>
-      <button onclick="simular()">Executar Simulação</button>
-      <div class="result" id="resultado"></div>
-    </div><div class="section">
-  <h2>Sobre esta Terapia</h2>
-  <p>CTX‑REGENERATIVO™ é uma terapia computacionalmente simulada que ativa a edição epigenética apenas em contexto inflamatório crítico, reduzindo riscos de erro genético. Utiliza inteligência artificial embarcada e dados culturais africanos para validar sua segurança.</p>
-</div>
+    <h1>CTX‑REGENETIVO™</h1>
+    <h2>Simulador Integrado – Plataforma BioAI‑CTX</h2>
 
-<div class="section">
-  <button onclick="baixarRelatorio()">📄 Baixar Relatório da Simulação</button>
-</div>
+    <label><input type="checkbox" id="inflamacao" /> Níveis inflamatórios controlados (IL-6 baixo)</label>
+    <label><input type="checkbox" id="marcadorGen" /> Mutação genética específica detectada (HBB)</label>
+    <label><input type="checkbox" id="estresse" /> Sem estresse oxidativo significativo</label>
+    <label><input type="checkbox" id="risco" /> Sinal de risco imunológico (ALTO)</label>
 
-<div class="lang-switch">
-  <button onclick="alert('Versão multilíngue disponível em breve.')">🌐 Ver em Inglês / Francês</button>
-</div>
+    <button onclick="simularCTX()">Ativar Simulação</button>
+    <div class="result" id="resultado"></div>
+  </div>
 
-  </div>  <script>
-    function simular() {
-      const il6 = document.getElementById('il6').checked;
-      const tnf = document.getElementById('tnf').checked;
-      const hbf = document.getElementById('hbf').checked;
-      const mosaico = document.getElementById('mosaico').checked;
+  <footer>
+    Desenvolvido no ecossistema <strong>DALA CURE OS</strong><br/>
+    &copy; 2025 – Criador: Dala De Carvalho ✊🏽
+  </footer>
 
-      const ativar = il6 && tnf && hbf && !mosaico;
-      const resultado = document.getElementById('resultado');
-      resultado.style.color = ativar ? 'green' : 'red';
-      resultado.textContent = ativar ? '✅ Terapia Ativada: Edição Epigenética ON' : '⛔ Terapia Bloqueada: Condições Não Ideais';
+  <script>
+    function simularCTX() {
+      const inflamacao = document.getElementById("inflamacao").checked;
+      const marcadorGen = document.getElementById("marcadorGen").checked;
+      const estresse = document.getElementById("estresse").checked;
+      const risco = document.getElementById("risco").checked;
+
+      const ativar = inflamacao && marcadorGen && estresse && !risco;
+
+      const resultado = document.getElementById("resultado");
+      if (ativar) {
+        resultado.textContent = "✅ Terapia CTX‑REGENETIVO™ Ativada com Sucesso";
+        resultado.style.color = "green";
+      } else {
+        resultado.textContent = "⛔ Terapia Bloqueada – Condições Não Cumpridas";
+        resultado.style.color = "red";
+      }
     }
-
-    function baixarRelatorio() {
-      const texto = document.getElementById('resultado').textContent;
-      const blob = new Blob(["Resultado da Simulação CTX‑REGENERATIVO:\n" + texto], { type: "text/plain;charset=utf-8" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "Simulacao_CTX_REGENERATIVO.txt";
-      link.click();
-    }
-  </script></body>
-  </html>
+  </script>
+</body>
+</html>
