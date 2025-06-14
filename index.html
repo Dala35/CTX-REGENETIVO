@@ -1,169 +1,110 @@
-<!DOCTYPE html>
-<html lang="pt">
+  <!DOCTYPE html><html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CTX‑REGENERATIVO™</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
-      color: #222;
+      padding: 0;
     }
-    header, footer {
+    header {
       background-color: #1f8b4c;
       color: white;
-      padding: 30px;
       text-align: center;
+      padding: 30px 20px;
     }
     .container {
-      padding: 20px;
-      max-width: 960px;
+      max-width: 900px;
       margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .section {
+      margin-bottom: 30px;
     }
     h1, h2 {
       color: #1f8b4c;
     }
-    section {
-      margin-bottom: 40px;
+    label {
+      display: block;
+      margin: 10px 0;
     }
-    .card {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      margin-top: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .btn {
+    button, .btn {
+      padding: 10px 20px;
+      margin-top: 20px;
+      border: none;
       background-color: #1f8b4c;
       color: white;
-      padding: 12px 25px;
-      border: none;
       border-radius: 5px;
-      text-decoration: none;
-      margin-top: 20px;
+      cursor: pointer;
       display: inline-block;
     }
-
-    /* Estilo do simulador */
-    .simulador {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.05);
-    }
-    .simulador label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-    .simulador select {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    #resultado-simulador {
-      font-size: 1.1em;
+    .result {
       font-weight: bold;
-      margin-top: 15px;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    .tooltip {
+      border-bottom: 1px dotted #000;
+      cursor: help;
+    }
+    .lang-switch {
+      margin-top: 30px;
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>CTX‑REGENERATIVO™</h1>
-    <p>Cura Ética, Inteligente e Bioadaptativa com DNA Afrokódico</p>
+    <p>Simulador de Terapia Epigenética Condicional para Hemoglobina Fetal</p>
   </header>
-
   <div class="container">
-    <section>
-      <h2>🌿 O que é?</h2>
-      <div class="card">
-        <p>O CTX‑REGENERATIVO™ é uma proposta terapêutica que ativa regeneração tecidual com precisão biomolecular, somente quando o corpo está pronto. Controlado por IA, respeita o tempo, a cultura e a ética de cada ser vivo.</p>
-      </div>
-    </section>
+    <div class="section">
+      <h2>Simulador BioAI‑CTX</h2>
+      <label><input type="checkbox" id="il6"> IL‑6 Elevada <span class="tooltip" title="Indica inflamação ativa que pode ativar a terapia.">[?]</span></label>
+      <label><input type="checkbox" id="tnf"> TNF‑α Elevado <span class="tooltip" title="Fator de necrose tumoral alfa – marcador inflamatório.">[?]</span></label>
+      <label><input type="checkbox" id="hbf"> HbF &lt; 5% <span class="tooltip" title="Indica baixa expressão de hemoglobina fetal.">[?]</span></label>
+      <label><input type="checkbox" id="mosaico"> Risco de Mosaico Genético Elevado <span class="tooltip" title="Impede ativação caso risco genético esteja presente.">[?]</span></label>
+      <button onclick="simular()">Executar Simulação</button>
+      <div class="result" id="resultado"></div>
+    </div><div class="section">
+  <h2>Sobre esta Terapia</h2>
+  <p>CTX‑REGENERATIVO™ é uma terapia computacionalmente simulada que ativa a edição epigenética apenas em contexto inflamatório crítico, reduzindo riscos de erro genético. Utiliza inteligência artificial embarcada e dados culturais africanos para validar sua segurança.</p>
+</div>
 
-    <section>
-      <h2>🔍 Tecnologias Envolvidas</h2>
-      <div class="card">
-        <ul>
-          <li><strong>DALA‑SCAN:</strong> Identificação de sinais inflamatórios locais</li>
-          <li><strong>BioAI‑CTX:</strong> Lógica condicional AND/NOR para liberação terapêutica</li>
-          <li><strong>GEN-SHIELD™:</strong> Proteção contra mutações indesejadas</li>
-          <li><strong>AfroRegeneron™:</strong> Peptídeos bioativos ancestrais</li>
-        </ul>
-      </div>
-    </section>
+<div class="section">
+  <button onclick="baixarRelatorio()">📄 Baixar Relatório da Simulação</button>
+</div>
 
-    <section>
-      <h2>🧪 Simulador CTX‑REGENERATIVO™</h2>
-      <div class="simulador">
-        <label for="dano">Nível de Dano Tecidual:</label>
-        <select id="dano">
-          <option value="leve">Leve</option>
-          <option value="moderado">Moderado</option>
-          <option value="grave">Grave</option>
-        </select>
+<div class="lang-switch">
+  <button onclick="alert('Versão multilíngue disponível em breve.')">🌐 Ver em Inglês / Francês</button>
+</div>
 
-        <label for="inflamacao">Presença de Inflamação:</label>
-        <select id="inflamacao">
-          <option value="não">Não</option>
-          <option value="sim">Sim</option>
-        </select>
+  </div>  <script>
+    function simular() {
+      const il6 = document.getElementById('il6').checked;
+      const tnf = document.getElementById('tnf').checked;
+      const hbf = document.getElementById('hbf').checked;
+      const mosaico = document.getElementById('mosaico').checked;
 
-        <label for="risco">Risco Ético/Biocultural:</label>
-        <select id="risco">
-          <option value="baixo">Baixo</option>
-          <option value="médio">Médio</option>
-          <option value="alto">Alto</option>
-        </select>
-
-        <button onclick="simularCTX()">Processar Simulação</button>
-        <div id="resultado-simulador"></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>📖 Frase Afrokódica</h2>
-      <div class="card">
-        <p>“A cura respeita o tempo, o corpo e a cultura. Se não há equilíbrio, o CTX aguarda. Se há sabedoria, ele regenera.”</p>
-      </div>
-    </section>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Dala De Carvalho – DALA CURE OS</p>
-    <p>Codificado com Vida, Ética e Esperança</p>
-  </footer>
-
-  <script>
-    function simularCTX() {
-      const dano = document.getElementById("dano").value;
-      const inflamacao = document.getElementById("inflamacao").value;
-      const risco = document.getElementById("risco").value;
-
-      let resultado = "";
-      let cor = "red";
-
-      if ((dano === "moderado" || dano === "grave") &&
-          inflamacao === "sim" &&
-          (risco === "baixo" || risco === "médio")) {
-        resultado = "✅ Terapia CTX-REGENERATIVO Ativada com Segurança";
-        cor = "green";
-      } else if (risco === "alto") {
-        resultado = "⚠️ Terapia Bloqueada: Risco Ético Elevado";
-      } else {
-        resultado = "⛔ Condições insuficientes para ativação segura";
-      }
-
-      const resElem = document.getElementById("resultado-simulador");
-      resElem.textContent = resultado;
-      resElem.style.color = cor;
+      const ativar = il6 && tnf && hbf && !mosaico;
+      const resultado = document.getElementById('resultado');
+      resultado.style.color = ativar ? 'green' : 'red';
+      resultado.textContent = ativar ? '✅ Terapia Ativada: Edição Epigenética ON' : '⛔ Terapia Bloqueada: Condições Não Ideais';
     }
-  </script>
-</body>
-</html>
+
+    function baixarRelatorio() {
+      const texto = document.getElementById('resultado').textContent;
+      const blob = new Blob(["Resultado da Simulação CTX‑REGENERATIVO:\n" + texto], { type: "text/plain;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "Simulacao_CTX_REGENERATIVO.txt";
+      link.click();
+    }
+  </script></body>
+  </html>
