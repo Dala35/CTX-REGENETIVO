@@ -61,85 +61,20 @@
       border-bottom: 1px dotted #000;
       cursor: help;
     }
-    .lang-switch {
-      margin-top: 30px;
-    }
   </style>
 </head>
 <body>
   <header>
-    <h1>CTX‑REGENERATIVO™</h1>
-    <p>Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica</p>
+    <h1 data-key="titulo">CTX‑REGENERATIVO™</h1>
+    <p data-key="subtitulo">Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica</p>
   </header>
-<script>
-  const traducoes = {
-    pt: {
-      titulo: "CTX‑REGENERATIVO™",
-      subtitulo: "Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica",
-      simular: "Executar Simulação",
-      baixar: "📄 Baixar Relatório da Simulação",
-      verHistorico: "🧾 Ver Histórico de Simulações",
-      limparHistorico: "🧹 Limpar Histórico",
-      sobre: "Sobre esta Terapia",
-      textoSobre: "CTX‑REGENERATIVO™ utiliza lógica BioAI‑CTX e edição epigenética com ativação ética condicional. O tratamento é seguro em presença de inflamação crítica, evitando intervenções desnecessárias e protegendo a integridade genética.",
-      multilingue: "🌍 Ver em Inglês / Francês",
-      terapiaAtivada: "✅ Terapia Ativada: Edição Epigenética ON",
-      terapiaBloqueada: "⛔ Terapia Bloqueada: Condições Não Ideais",
-      iaAtivada: "🧠 IA DALA.CTX: As condições inflamatórias críticas foram detectadas. A ativação da terapia é eticamente segura e justificada. Recomenda-se iniciar protocolo com monitoramento.",
-      iaBloqueada: "⚠️ IA DALA.CTX: Os critérios bioéticos não foram cumpridos. A terapia foi bloqueada para evitar edições inseguras ou irrelevantes."
-    },
-    en: {
-      titulo: "CTX‑REGENERATIVE™",
-      subtitulo: "Embedded AI Simulator – Epigenetic Therapy with Afrokódico Logic",
-      simular: "Run Simulation",
-      baixar: "📄 Download Simulation Report",
-      verHistorico: "🧾 View Simulation History",
-      limparHistorico: "🧹 Clear History",
-      sobre: "About this Therapy",
-      textoSobre: "CTX‑REGENERATIVE™ uses BioAI‑CTX logic and epigenetic editing with conditional ethical activation. It is safe under critical inflammation, avoiding unnecessary interventions and protecting genetic integrity.",
-      multilingue: "🌍 View in Portuguese / French",
-      terapiaAtivada: "✅ Therapy Activated: Epigenetic Editing ON",
-      terapiaBloqueada: "⛔ Therapy Blocked: Non-ideal Conditions",
-      iaAtivada: "🧠 IA DALA.CTX: Inflammatory conditions detected. Ethical activation recommended. Begin protocol with monitoring.",
-      iaBloqueada: "⚠️ IA DALA.CTX: Bioethical criteria not met. Editing blocked for safety."
-    },
-    fr: {
-      titulo: "CTX‑RÉGÉNÉRATIF™",
-      subtitulo: "Simulateur IA Intégrée – Thérapie Épigénétique avec Logique Afrokódique",
-      simular: "Lancer la Simulation",
-      baixar: "📄 Télécharger le Rapport de Simulation",
-      verHistorico: "🧾 Voir l'Historique des Simulations",
-      limparHistorico: "🧹 Effacer l'Historique",
-      sobre: "À propos de cette Thérapie",
-      textoSobre: "CTX‑RÉGÉNÉRATIF™ utilise la logique BioAI‑CTX et l’édition épigénétique avec activation éthique conditionnelle. Sûre en cas d’inflammation critique, elle évite les interventions inutiles.",
-      multilingue: "🌍 Voir en Portugais / Anglais",
-      terapiaAtivada: "✅ Thérapie Activée : Édition Épigénétique ON",
-      terapiaBloqueada: "⛔ Thérapie Bloquée : Conditions Non Idéales",
-      iaAtivada: "🧠 IA DALA.CTX : Inflammation détectée. Activation éthique recommandée. Début du protocole conseillé.",
-      iaBloqueada: "⚠️ IA DALA.CTX : Critères bioéthiques non atteints. Édition bloquée pour sécurité."
-    }
-  };
 
-  let idiomaAtual = 'pt';
-
-  function trocarIdioma(idioma) {
-    idiomaAtual = idioma;
-    for (let key in traducoes[idioma]) {
-      const el = document.querySelector(`[data-key="${key}"]`);
-      if (el) el.innerHTML = traducoes[idioma][key];
-    }
-  }
-</script>
   <div class="container">
     <div class="section">
-      <h1 data-key="titulo">CTX‑REGENERATIVO™</h1>
-<p data-key="subtitulo">Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica</p>
-<button onclick="simular()" data-key="simular">Executar Simulação</button>
-<button onclick="baixarRelatorio()" data-key="baixar">📄 Baixar Relatório da Simulação</button>
-      <label><input type="checkbox" id="il6"> IL‑6 Elevada <span class="tooltip" title="Indica inflamação ativa que pode ativar a terapia.">[?]</span></label>
-      <label><input type="checkbox" id="tnf"> TNF‑α Elevado <span class="tooltip" title="Fator inflamatório que pode justificar edição epigenética.">[?]</span></label>
-      <label><input type="checkbox" id="hbf"> HbF &lt; 5% <span class="tooltip" title="Hemoglobina fetal baixa: sinal de necessidade clínica.">[?]</span></label>
-      <label><input type="checkbox" id="mosaico"> Risco Genético Alto (Mosaico) <span class="tooltip" title="Impede ativação se risco de mutações imprevisíveis estiver elevado.">[?]</span></label>
+      <label><input type="checkbox" id="il6"> IL‑6 Elevada</label>
+      <label><input type="checkbox" id="tnf"> TNF‑α Elevado</label>
+      <label><input type="checkbox" id="hbf"> HbF &lt; 5%</label>
+      <label><input type="checkbox" id="mosaico"> Risco Genético Alto (Mosaico)</label>
       <button onclick="simular()">Executar Simulação</button>
       <div class="result" id="resultado"></div>
       <div class="ia-response" id="iaTexto" style="display: none;"></div>
@@ -147,17 +82,20 @@
 
     <div class="section">
       <h2>Sobre esta Terapia</h2>
-      <p>CTX‑REGENERATIVO™ utiliza lógica BioAI‑CTX e edição epigenética com ativação ética condicional. O tratamento é seguro em presença de inflamação crítica, evitando intervenções desnecessárias e protegendo a integridade genética.</p>
+      <p>CTX‑REGENERATIVO™ utiliza lógica BioAI‑CTX e edição epigenética com ativação ética condicional.</p>
     </div>
 
-    <div class="section"><button onclick="trocarIdioma('pt')">🇦🇴 Português</button>
-<button onclick="trocarIdioma('en')">🇬🇧 English</button>
-<button onclick="trocarIdioma('fr')">🇫🇷 Français</button>
+    <div class="section">
       <button onclick="baixarRelatorio()">📄 Baixar Relatório da Simulação</button>
+      <button onclick="mostrarHistorico()">🧾 Ver Histórico de Simulações</button>
+      <button onclick="limparHistorico()">🧹 Limpar Histórico</button>
+      <div id="historico" style="display:none; margin-top: 20px; background:#f1f1f1; padding:15px; border-radius:8px;"></div>
     </div>
 
-    <div class="lang-switch">
-      <button onclick="alert('🌐 Versão multilíngue será ativada em breve.')">🌍 Ver em Inglês / Francês</button>
+    <div class="section">
+      <button onclick="trocarIdioma('pt')">🇦🇴 Português</button>
+      <button onclick="trocarIdioma('en')">🇬🇧 English</button>
+      <button onclick="trocarIdioma('fr')">🇫🇷 Français</button>
     </div>
   </div>
 
@@ -166,6 +104,26 @@
   </footer>
 
   <script>
+    const traducoes = {
+      pt: {
+        titulo: "CTX‑REGENERATIVO™",
+        subtitulo: "Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica"
+      },
+      en: {
+        titulo: "CTX‑REGENERATIVE™",
+        subtitulo: "Simulator with Embedded AI – Epigenetic Therapy with Afrocode Logic"
+      },
+      fr: {
+        titulo: "CTX‑RÉGÉNÉRATIF™",
+        subtitulo: "Simulateur avec IA Intégrée – Thérapie Épigénétique à Base Afrokódique"
+      }
+    };
+
+    function trocarIdioma(lang) {
+      document.querySelector('[data-key="titulo"]').textContent = traducoes[lang].titulo;
+      document.querySelector('[data-key="subtitulo"]').textContent = traducoes[lang].subtitulo;
+    }
+
     function simular() {
       const il6 = document.getElementById('il6').checked;
       const tnf = document.getElementById('tnf').checked;
@@ -178,13 +136,14 @@
       resultado.style.color = ativar ? 'green' : 'red';
       resultado.textContent = ativar ? '✅ Terapia Ativada: Edição Epigenética ON' : '⛔ Terapia Bloqueada: Condições Não Ideais';
 
-      if (ativar) {
-        iaTexto.innerHTML = "🧠 <strong>IA DALA.CTX:</strong> As condições inflamatórias críticas foram detectadas. A ativação da terapia é eticamente segura e justificada. Recomenda-se iniciar protocolo com monitoramento. Risco de mosaico: inaceitável — não detectado.";
-      } else {
-        iaTexto.innerHTML = "⚠️ <strong>IA DALA.CTX:</strong> Os critérios bioéticos não foram cumpridos. A terapia foi bloqueada para evitar edições inseguras ou irrelevantes. Ajuste os parâmetros antes de seguir.";
-      }
-
+      iaTexto.innerHTML = ativar
+        ? "🧠 <strong>IA DALA.CTX:</strong> As condições inflamatórias críticas foram detectadas. A ativação da terapia é eticamente segura e justificada."
+        : "⚠️ <strong>IA DALA.CTX:</strong> Os critérios bioéticos não foram cumpridos. A terapia foi bloqueada.";
       iaTexto.style.display = "block";
+
+      const historico = JSON.parse(localStorage.getItem("ctxHistorico")) || [];
+      historico.push(resultado.textContent);
+      localStorage.setItem("ctxHistorico", JSON.stringify(historico));
     }
 
     function baixarRelatorio() {
@@ -196,11 +155,18 @@
       link.download = "Relatorio_CTX_REGENERATIVO.txt";
       link.click();
     }
-    <div class="section">
-  <button onclick="mostrarHistorico()">🧾 Ver Histórico de Simulações</button>
-  <button onclick="limparHistorico()">🧹 Limpar Histórico</button>
-  <div id="historico" style="display:none; margin-top: 20px; background:#f1f1f1; padding:15px; border-radius:8px;"></div>
-</div>
+
+    function mostrarHistorico() {
+      const historico = JSON.parse(localStorage.getItem("ctxHistorico")) || [];
+      const container = document.getElementById("historico");
+      container.innerHTML = "<strong>Histórico:</strong><ul>" + historico.map(item => `<li>${item}</li>`).join("") + "</ul>";
+      container.style.display = "block";
+    }
+
+    function limparHistorico() {
+      localStorage.removeItem("ctxHistorico");
+      document.getElementById("historico").innerHTML = "";
+    }
   </script>
 </body>
 </html>
