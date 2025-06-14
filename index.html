@@ -2,98 +2,136 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CTX‑REGENETIVO™ – Simulador Integrado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CTX‑REGENERATIVO™ – IA Embutida</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
+      background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-      color: #222;
+    }
+    header {
+      background-color: #1f8b4c;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
     }
     .container {
-      max-width: 720px;
-      margin: 40px auto;
+      max-width: 900px;
+      margin: auto;
       padding: 20px;
-      background: #fff;
+      background: white;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .section {
+      margin-bottom: 30px;
     }
     h1, h2 {
       color: #1f8b4c;
     }
     label {
       display: block;
-      margin-top: 15px;
+      margin: 10px 0;
     }
-    input[type="checkbox"] {
-      margin-right: 8px;
+    button, .btn {
+      padding: 10px 20px;
+      margin-top: 20px;
+      border: none;
+      background-color: #1f8b4c;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
     }
     .result {
-      margin-top: 25px;
-      font-size: 1.2em;
       font-weight: bold;
-      text-align: center;
-    }
-    button {
+      font-size: 1.2em;
       margin-top: 20px;
-      padding: 12px;
-      background: #1f8b4c;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      width: 100%;
-      cursor: pointer;
-      font-size: 16px;
     }
-    button:hover {
-      background: #166c3b;
+    .ia-response {
+      background: #e7ffe7;
+      border-left: 5px solid #1f8b4c;
+      padding: 15px;
+      margin-top: 20px;
+      font-style: italic;
     }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #555;
+    .tooltip {
+      border-bottom: 1px dotted #000;
+      cursor: help;
+    }
+    .lang-switch {
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>CTX‑REGENERATIVO™</h1>
+    <p>Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica</p>
+  </header>
+
   <div class="container">
-    <h1>CTX‑REGENETIVO™</h1>
-    <h2>Simulador Integrado – Plataforma BioAI‑CTX</h2>
+    <div class="section">
+      <h2>Simulador BioAI‑CTX</h2>
+      <label><input type="checkbox" id="il6"> IL‑6 Elevada <span class="tooltip" title="Indica inflamação ativa que pode ativar a terapia.">[?]</span></label>
+      <label><input type="checkbox" id="tnf"> TNF‑α Elevado <span class="tooltip" title="Fator inflamatório que pode justificar edição epigenética.">[?]</span></label>
+      <label><input type="checkbox" id="hbf"> HbF &lt; 5% <span class="tooltip" title="Hemoglobina fetal baixa: sinal de necessidade clínica.">[?]</span></label>
+      <label><input type="checkbox" id="mosaico"> Risco Genético Alto (Mosaico) <span class="tooltip" title="Impede ativação se risco de mutações imprevisíveis estiver elevado.">[?]</span></label>
+      <button onclick="simular()">Executar Simulação</button>
+      <div class="result" id="resultado"></div>
+      <div class="ia-response" id="iaTexto" style="display: none;"></div>
+    </div>
 
-    <label><input type="checkbox" id="inflamacao" /> Níveis inflamatórios controlados (IL-6 baixo)</label>
-    <label><input type="checkbox" id="marcadorGen" /> Mutação genética específica detectada (HBB)</label>
-    <label><input type="checkbox" id="estresse" /> Sem estresse oxidativo significativo</label>
-    <label><input type="checkbox" id="risco" /> Sinal de risco imunológico (ALTO)</label>
+    <div class="section">
+      <h2>Sobre esta Terapia</h2>
+      <p>CTX‑REGENERATIVO™ utiliza lógica BioAI‑CTX e edição epigenética com ativação ética condicional. O tratamento é seguro em presença de inflamação crítica, evitando intervenções desnecessárias e protegendo a integridade genética.</p>
+    </div>
 
-    <button onclick="simularCTX()">Ativar Simulação</button>
-    <div class="result" id="resultado"></div>
+    <div class="section">
+      <button onclick="baixarRelatorio()">📄 Baixar Relatório da Simulação</button>
+    </div>
+
+    <div class="lang-switch">
+      <button onclick="alert('🌐 Versão multilíngue será ativada em breve.')">🌍 Ver em Inglês / Francês</button>
+    </div>
   </div>
 
-  <footer>
-    Desenvolvido no ecossistema <strong>DALA CURE OS</strong><br/>
-    &copy; 2025 – Criador: Dala De Carvalho ✊🏽
+  <footer style="text-align:center; margin-top:40px; color:#555;">
+    Desenvolvido com sabedoria Afrokódica e IA Viva – &copy; 2025 Dala De Carvalho ✊🏽
   </footer>
 
   <script>
-    function simularCTX() {
-      const inflamacao = document.getElementById("inflamacao").checked;
-      const marcadorGen = document.getElementById("marcadorGen").checked;
-      const estresse = document.getElementById("estresse").checked;
-      const risco = document.getElementById("risco").checked;
+    function simular() {
+      const il6 = document.getElementById('il6').checked;
+      const tnf = document.getElementById('tnf').checked;
+      const hbf = document.getElementById('hbf').checked;
+      const mosaico = document.getElementById('mosaico').checked;
 
-      const ativar = inflamacao && marcadorGen && estresse && !risco;
+      const ativar = il6 && tnf && hbf && !mosaico;
+      const resultado = document.getElementById('resultado');
+      const iaTexto = document.getElementById('iaTexto');
+      resultado.style.color = ativar ? 'green' : 'red';
+      resultado.textContent = ativar ? '✅ Terapia Ativada: Edição Epigenética ON' : '⛔ Terapia Bloqueada: Condições Não Ideais';
 
-      const resultado = document.getElementById("resultado");
       if (ativar) {
-        resultado.textContent = "✅ Terapia CTX‑REGENETIVO™ Ativada com Sucesso";
-        resultado.style.color = "green";
+        iaTexto.innerHTML = "🧠 <strong>IA DALA.CTX:</strong> As condições inflamatórias críticas foram detectadas. A ativação da terapia é eticamente segura e justificada. Recomenda-se iniciar protocolo com monitoramento. Risco de mosaico: inaceitável — não detectado.";
       } else {
-        resultado.textContent = "⛔ Terapia Bloqueada – Condições Não Cumpridas";
-        resultado.style.color = "red";
+        iaTexto.innerHTML = "⚠️ <strong>IA DALA.CTX:</strong> Os critérios bioéticos não foram cumpridos. A terapia foi bloqueada para evitar edições inseguras ou irrelevantes. Ajuste os parâmetros antes de seguir.";
       }
+
+      iaTexto.style.display = "block";
+    }
+
+    function baixarRelatorio() {
+      const texto = document.getElementById('resultado').textContent + "\n" +
+        document.getElementById('iaTexto').textContent;
+      const blob = new Blob(["Relatório CTX‑REGENERATIVO\n\n" + texto], { type: "text/plain;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "Relatorio_CTX_REGENERATIVO.txt";
+      link.click();
     }
   </script>
 </body>
