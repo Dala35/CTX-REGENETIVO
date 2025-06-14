@@ -37,7 +37,7 @@
     }
     button, .btn {
       padding: 10px 20px;
-      margin-top: 20px;
+      margin: 10px 10px 0 0;
       border: none;
       background-color: #1f8b4c;
       color: white;
@@ -61,38 +61,47 @@
       border-bottom: 1px dotted #000;
       cursor: help;
     }
+    #historico {
+      margin-top: 15px;
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 8px;
+      display: none;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1 data-key="titulo">CTX‑REGENERATIVO™</h1>
-    <p data-key="subtitulo">Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica</p>
+    <h1>CTX‑REGENERATIVO™</h1>
+    <p>Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica</p>
   </header>
 
   <div class="container">
     <div class="section">
-      <label><input type="checkbox" id="il6"> IL‑6 Elevada</label>
-      <label><input type="checkbox" id="tnf"> TNF‑α Elevado</label>
-      <label><input type="checkbox" id="hbf"> HbF &lt; 5%</label>
-      <label><input type="checkbox" id="mosaico"> Risco Genético Alto (Mosaico)</label>
+      <h2>Simulador BioAI‑CTX</h2>
+      <label><input type="checkbox" id="il6"> IL‑6 Elevada <span class="tooltip" title="Indica inflamação ativa que pode ativar a terapia.">[?]</span></label>
+      <label><input type="checkbox" id="tnf"> TNF‑α Elevado <span class="tooltip" title="Fator inflamatório que pode justificar edição epigenética.">[?]</span></label>
+      <label><input type="checkbox" id="hbf"> HbF &lt; 5% <span class="tooltip" title="Hemoglobina fetal baixa: sinal de necessidade clínica.">[?]</span></label>
+      <label><input type="checkbox" id="mosaico"> Risco Genético Alto (Mosaico) <span class="tooltip" title="Impede ativação se risco de mutações imprevisíveis estiver elevado.">[?]</span></label>
       <button onclick="simular()">Executar Simulação</button>
       <div class="result" id="resultado"></div>
       <div class="ia-response" id="iaTexto" style="display: none;"></div>
     </div>
 
     <div class="section">
-      <h2>Sobre esta Terapia</h2>
-      <p>CTX‑REGENERATIVO™ utiliza lógica BioAI‑CTX e edição epigenética com ativação ética condicional.</p>
-    </div>
-
-    <div class="section">
       <button onclick="baixarRelatorio()">📄 Baixar Relatório da Simulação</button>
-      <button onclick="mostrarHistorico()">🧾 Ver Histórico de Simulações</button>
+      <button onclick="mostrarHistorico()">🧾 Ver Histórico</button>
       <button onclick="limparHistorico()">🧹 Limpar Histórico</button>
-      <div id="historico" style="display:none; margin-top: 20px; background:#f1f1f1; padding:15px; border-radius:8px;"></div>
+      <div id="historico"></div>
     </div>
 
     <div class="section">
+      <h2>Sobre esta Terapia</h2>
+      <p>CTX‑REGENERATIVO™ utiliza lógica BioAI‑CTX e edição epigenética com ativação ética condicional. O tratamento é seguro em presença de inflamação crítica, evitando intervenções desnecessárias e protegendo a integridade genética.</p>
+    </div>
+
+    <div class="section">
+      <h3>🌐 Idioma / Language / Langue</h3>
       <button onclick="trocarIdioma('pt')">🇦🇴 Português</button>
       <button onclick="trocarIdioma('en')">🇬🇧 English</button>
       <button onclick="trocarIdioma('fr')">🇫🇷 Français</button>
@@ -104,24 +113,30 @@
   </footer>
 
   <script>
-    const traducoes = {
+    const textos = {
       pt: {
         titulo: "CTX‑REGENERATIVO™",
-        subtitulo: "Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica"
+        simular: "Executar Simulação",
+        baixar: "📄 Baixar Relatório da Simulação"
       },
       en: {
         titulo: "CTX‑REGENERATIVE™",
-        subtitulo: "Simulator with Embedded AI – Epigenetic Therapy with Afrocode Logic"
+        simular: "Run Simulation",
+        baixar: "📄 Download Simulation Report"
       },
       fr: {
         titulo: "CTX‑RÉGÉNÉRATIF™",
-        subtitulo: "Simulateur avec IA Intégrée – Thérapie Épigénétique à Base Afrokódique"
+        simular: "Exécuter la Simulation",
+        baixar: "📄 Télécharger le Rapport"
       }
     };
 
-    function trocarIdioma(lang) {
-      document.querySelector('[data-key="titulo"]').textContent = traducoes[lang].titulo;
-      document.querySelector('[data-key="subtitulo"]').textContent = traducoes[lang].subtitulo;
+    function trocarIdioma(idioma) {
+      const lang = textos[idioma];
+      if (!lang) return;
+      document.querySelector('h1').textContent = lang.titulo;
+      document.querySelectorAll('button')[0].textContent = lang.simular;
+      document.querySelectorAll('button')[1].textContent = lang.baixar;
     }
 
     function simular() {
@@ -129,21 +144,22 @@
       const tnf = document.getElementById('tnf').checked;
       const hbf = document.getElementById('hbf').checked;
       const mosaico = document.getElementById('mosaico').checked;
-
       const ativar = il6 && tnf && hbf && !mosaico;
+
       const resultado = document.getElementById('resultado');
       const iaTexto = document.getElementById('iaTexto');
       resultado.style.color = ativar ? 'green' : 'red';
-      resultado.textContent = ativar ? '✅ Terapia Ativada: Edição Epigenética ON' : '⛔ Terapia Bloqueada: Condições Não Ideais';
+      resultado.textContent = ativar
+        ? '✅ Terapia Ativada: Edição Epigenética ON'
+        : '⛔ Terapia Bloqueada: Condições Não Ideais';
 
       iaTexto.innerHTML = ativar
-        ? "🧠 <strong>IA DALA.CTX:</strong> As condições inflamatórias críticas foram detectadas. A ativação da terapia é eticamente segura e justificada."
-        : "⚠️ <strong>IA DALA.CTX:</strong> Os critérios bioéticos não foram cumpridos. A terapia foi bloqueada.";
+        ? "🧠 <strong>IA DALA.CTX:</strong> Condições críticas detectadas. Ativação segura recomendada."
+        : "⚠️ <strong>IA DALA.CTX:</strong> Terapia bloqueada. Parâmetros bioéticos não atendidos.";
+
       iaTexto.style.display = "block";
 
-      const historico = JSON.parse(localStorage.getItem("ctxHistorico")) || [];
-      historico.push(resultado.textContent);
-      localStorage.setItem("ctxHistorico", JSON.stringify(historico));
+      salvarHistorico(resultado.textContent + "\n" + iaTexto.textContent);
     }
 
     function baixarRelatorio() {
@@ -156,16 +172,22 @@
       link.click();
     }
 
+    function salvarHistorico(dados) {
+      let historico = localStorage.getItem("historico") || "";
+      historico += "\n---\n" + new Date().toLocaleString() + "\n" + dados;
+      localStorage.setItem("historico", historico);
+    }
+
     function mostrarHistorico() {
-      const historico = JSON.parse(localStorage.getItem("ctxHistorico")) || [];
-      const container = document.getElementById("historico");
-      container.innerHTML = "<strong>Histórico:</strong><ul>" + historico.map(item => `<li>${item}</li>`).join("") + "</ul>";
-      container.style.display = "block";
+      const historico = localStorage.getItem("historico") || "Sem dados anteriores.";
+      const div = document.getElementById("historico");
+      div.style.display = "block";
+      div.textContent = historico;
     }
 
     function limparHistorico() {
-      localStorage.removeItem("ctxHistorico");
-      document.getElementById("historico").innerHTML = "";
+      localStorage.removeItem("historico");
+      mostrarHistorico();
     }
   </script>
 </body>
