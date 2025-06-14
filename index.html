@@ -71,7 +71,65 @@
     <h1>CTX‑REGENERATIVO™</h1>
     <p>Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica</p>
   </header>
+<script>
+  const traducoes = {
+    pt: {
+      titulo: "CTX‑REGENERATIVO™",
+      subtitulo: "Simulador com IA Embutida – Terapia Epigenética com Base Afrokódica",
+      simular: "Executar Simulação",
+      baixar: "📄 Baixar Relatório da Simulação",
+      verHistorico: "🧾 Ver Histórico de Simulações",
+      limparHistorico: "🧹 Limpar Histórico",
+      sobre: "Sobre esta Terapia",
+      textoSobre: "CTX‑REGENERATIVO™ utiliza lógica BioAI‑CTX e edição epigenética com ativação ética condicional. O tratamento é seguro em presença de inflamação crítica, evitando intervenções desnecessárias e protegendo a integridade genética.",
+      multilingue: "🌍 Ver em Inglês / Francês",
+      terapiaAtivada: "✅ Terapia Ativada: Edição Epigenética ON",
+      terapiaBloqueada: "⛔ Terapia Bloqueada: Condições Não Ideais",
+      iaAtivada: "🧠 IA DALA.CTX: As condições inflamatórias críticas foram detectadas. A ativação da terapia é eticamente segura e justificada. Recomenda-se iniciar protocolo com monitoramento.",
+      iaBloqueada: "⚠️ IA DALA.CTX: Os critérios bioéticos não foram cumpridos. A terapia foi bloqueada para evitar edições inseguras ou irrelevantes."
+    },
+    en: {
+      titulo: "CTX‑REGENERATIVE™",
+      subtitulo: "Embedded AI Simulator – Epigenetic Therapy with Afrokódico Logic",
+      simular: "Run Simulation",
+      baixar: "📄 Download Simulation Report",
+      verHistorico: "🧾 View Simulation History",
+      limparHistorico: "🧹 Clear History",
+      sobre: "About this Therapy",
+      textoSobre: "CTX‑REGENERATIVE™ uses BioAI‑CTX logic and epigenetic editing with conditional ethical activation. It is safe under critical inflammation, avoiding unnecessary interventions and protecting genetic integrity.",
+      multilingue: "🌍 View in Portuguese / French",
+      terapiaAtivada: "✅ Therapy Activated: Epigenetic Editing ON",
+      terapiaBloqueada: "⛔ Therapy Blocked: Non-ideal Conditions",
+      iaAtivada: "🧠 IA DALA.CTX: Inflammatory conditions detected. Ethical activation recommended. Begin protocol with monitoring.",
+      iaBloqueada: "⚠️ IA DALA.CTX: Bioethical criteria not met. Editing blocked for safety."
+    },
+    fr: {
+      titulo: "CTX‑RÉGÉNÉRATIF™",
+      subtitulo: "Simulateur IA Intégrée – Thérapie Épigénétique avec Logique Afrokódique",
+      simular: "Lancer la Simulation",
+      baixar: "📄 Télécharger le Rapport de Simulation",
+      verHistorico: "🧾 Voir l'Historique des Simulations",
+      limparHistorico: "🧹 Effacer l'Historique",
+      sobre: "À propos de cette Thérapie",
+      textoSobre: "CTX‑RÉGÉNÉRATIF™ utilise la logique BioAI‑CTX et l’édition épigénétique avec activation éthique conditionnelle. Sûre en cas d’inflammation critique, elle évite les interventions inutiles.",
+      multilingue: "🌍 Voir en Portugais / Anglais",
+      terapiaAtivada: "✅ Thérapie Activée : Édition Épigénétique ON",
+      terapiaBloqueada: "⛔ Thérapie Bloquée : Conditions Non Idéales",
+      iaAtivada: "🧠 IA DALA.CTX : Inflammation détectée. Activation éthique recommandée. Début du protocole conseillé.",
+      iaBloqueada: "⚠️ IA DALA.CTX : Critères bioéthiques non atteints. Édition bloquée pour sécurité."
+    }
+  };
 
+  let idiomaAtual = 'pt';
+
+  function trocarIdioma(idioma) {
+    idiomaAtual = idioma;
+    for (let key in traducoes[idioma]) {
+      const el = document.querySelector(`[data-key="${key}"]`);
+      if (el) el.innerHTML = traducoes[idioma][key];
+    }
+  }
+</script>
   <div class="container">
     <div class="section">
       <h2>Simulador BioAI‑CTX</h2>
