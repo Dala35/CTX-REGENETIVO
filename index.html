@@ -3,189 +3,167 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CTX‑REGENERATIVO™ | DALA CURE OS</title>
+  <title>CTX‑REGENERATIVO™</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
       margin: 0;
-      background-color: #f8f9fa;
       color: #222;
     }
-    header {
-      background: #1f8b4c;
+    header, footer {
+      background-color: #1f8b4c;
       color: white;
-      padding: 30px 20px;
+      padding: 30px;
       text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    header p {
-      font-size: 1.1rem;
-      margin-top: 5px;
     }
     .container {
+      padding: 20px;
       max-width: 960px;
-      margin: 30px auto;
-      padding: 0 20px;
+      margin: auto;
     }
-    .section {
-      background: #fff;
-      margin-bottom: 30px;
-      padding: 25px;
-      border-radius: 12px;
+    h1, h2 {
+      color: #1f8b4c;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    h2 {
-      color: #1f8b4c;
-      margin-top: 0;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-    table, th, td {
-      border: 1px solid #ddd;
-    }
-    th {
-      background-color: #e0f2ea;
-      color: #222;
-    }
-    th, td {
-      padding: 10px;
-      text-align: left;
-    }
-    .quote {
-      border-left: 4px solid #1f8b4c;
-      padding-left: 15px;
-      font-style: italic;
-      color: #444;
-      margin-top: 20px;
-    }
-    footer {
-      text-align: center;
-      background: #1f8b4c;
+    .btn {
+      background-color: #1f8b4c;
       color: white;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 20px;
+      display: inline-block;
     }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-      .section {
-        padding: 15px;
-      }
+
+    /* Estilo do simulador */
+    .simulador {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    }
+    .simulador label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .simulador select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    #resultado-simulador {
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-top: 15px;
     }
   </style>
 </head>
+
 <body>
+  <header>
+    <h1>CTX‑REGENERATIVO™</h1>
+    <p>Cura Ética, Inteligente e Bioadaptativa com DNA Afrokódico</p>
+  </header>
 
-<header>
-  <h1>CTX‑REGENERATIVO™</h1>
-  <p>Regeneração Genética e Epigenética com IA Bioética</p>
-</header>
+  <div class="container">
+    <section>
+      <h2>🌿 O que é?</h2>
+      <div class="card">
+        <p>O CTX‑REGENERATIVO™ é uma proposta terapêutica que ativa regeneração tecidual com precisão biomolecular, somente quando o corpo está pronto. Controlado por IA, respeita o tempo, a cultura e a ética de cada ser vivo.</p>
+      </div>
+    </section>
 
-<div class="container">
+    <section>
+      <h2>🔍 Tecnologias Envolvidas</h2>
+      <div class="card">
+        <ul>
+          <li><strong>DALA‑SCAN:</strong> Identificação de sinais inflamatórios locais</li>
+          <li><strong>BioAI‑CTX:</strong> Lógica condicional AND/NOR para liberação terapêutica</li>
+          <li><strong>GEN-SHIELD™:</strong> Proteção contra mutações indesejadas</li>
+          <li><strong>AfroRegeneron™:</strong> Peptídeos bioativos ancestrais</li>
+        </ul>
+      </div>
+    </section>
 
-  <div class="section">
-    <h2>1️⃣ Nome Oficial</h2>
-    <p><strong>CTX‑REGENERATIVO™</strong> — Terapia regenerativa assistida por IA com controle cultural e ético integrado.</p>
+    <section>
+      <h2>🧪 Simulador CTX‑REGENERATIVO™</h2>
+      <div class="simulador">
+        <label for="dano">Nível de Dano Tecidual:</label>
+        <select id="dano">
+          <option value="leve">Leve</option>
+          <option value="moderado">Moderado</option>
+          <option value="grave">Grave</option>
+        </select>
+
+        <label for="inflamacao">Presença de Inflamação:</label>
+        <select id="inflamacao">
+          <option value="não">Não</option>
+          <option value="sim">Sim</option>
+        </select>
+
+        <label for="risco">Risco Ético/Biocultural:</label>
+        <select id="risco">
+          <option value="baixo">Baixo</option>
+          <option value="médio">Médio</option>
+          <option value="alto">Alto</option>
+        </select>
+
+        <button onclick="simularCTX()">Processar Simulação</button>
+        <div id="resultado-simulador"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>📖 Frase Afrokódica</h2>
+      <div class="card">
+        <p>“A cura respeita o tempo, o corpo e a cultura. Se não há equilíbrio, o CTX aguarda. Se há sabedoria, ele regenera.”</p>
+      </div>
+    </section>
   </div>
 
-  <div class="section">
-    <h2>2️⃣ Problema que Resolve</h2>
-    <table>
-      <tr><th>Problema</th><th>Solução CTX</th></tr>
-      <tr><td>Tratamentos agressivos</td><td>Regeneração não invasiva via IA</td></tr>
-      <tr><td>Falta de acesso</td><td>Aplicação com kits locais</td></tr>
-      <tr><td>Alto risco genético</td><td>Edição sem corte (dCas9)</td></tr>
-    </table>
-  </div>
+  <footer>
+    <p>&copy; 2025 Dala De Carvalho – DALA CURE OS</p>
+    <p>Codificado com Vida, Ética e Esperança</p>
+  </footer>
 
-  <div class="section">
-    <h2>3️⃣ Mecanismo de Ação</h2>
-    <p>Detecta dano celular → Avalia sinais → Ativa vetor regenerativo → Restaura tecido com RNA modulado.</p>
-  </div>
+  <script>
+    function simularCTX() {
+      const dano = document.getElementById("dano").value;
+      const inflamacao = document.getElementById("inflamacao").value;
+      const risco = document.getElementById("risco").value;
 
-  <div class="section">
-    <h2>4️⃣ Componentes Tecnológicos</h2>
-    <ul>
-      <li>🔹 CRISPR-dCas9 (sem corte)</li>
-      <li>🔹 IA epigenética</li>
-      <li>🔹 Nanopartículas CTX</li>
-      <li>🔹 RNA terapêutico</li>
-      <li>🔹 Módulo BIOÉTICA OS™</li>
-    </ul>
-  </div>
+      let resultado = "";
+      let cor = "red";
 
-  <div class="section">
-    <h2>5️⃣ Simulações In Silico</h2>
-    <table>
-      <tr><th>Parâmetro</th><th>Resultado</th></tr>
-      <tr><td>Neuroplasticidade</td><td>+46%</td></tr>
-      <tr><td>Regeneração hepática</td><td>83%</td></tr>
-      <tr><td>Redução senescência</td><td>–71%</td></tr>
-      <tr><td>Risco tumoral</td><td>&lt;0.8%</td></tr>
-    </table>
-  </div>
+      if ((dano === "moderado" || dano === "grave") &&
+          inflamacao === "sim" &&
+          (risco === "baixo" || risco === "médio")) {
+        resultado = "✅ Terapia CTX-REGENERATIVO Ativada com Segurança";
+        cor = "green";
+      } else if (risco === "alto") {
+        resultado = "⚠️ Terapia Bloqueada: Risco Ético Elevado";
+      } else {
+        resultado = "⛔ Condições insuficientes para ativação segura";
+      }
 
-  <div class="section">
-    <h2>6️⃣ Aplicações Clínicas</h2>
-    <ul>
-      <li>✔️ AVC e neurolesões</li>
-      <li>✔️ Cirrose e fibrose</li>
-      <li>✔️ Degenerações autoimunes</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>7️⃣ Segurança Integrada</h2>
-    <ul>
-      <li>✔️ IA bloqueia se houver risco</li>
-      <li>✔️ Etapas éticas validadas</li>
-      <li>✔️ Controle cultural ativado</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>8️⃣ Implementação em Comunidades</h2>
-    <ul>
-      <li>📦 MiniKits de campo</li>
-      <li>📱 App educativo com IA</li>
-      <li>🎧 Instrução em áudio local</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>9️⃣ Licenciamento e Autoria</h2>
-    <ul>
-      <li><strong>Criador:</strong> Dala De Carvalho</li>
-      <li><strong>IA Responsável:</strong> DALA V1</li>
-      <li><strong>Versão:</strong> CTX‑REGEN Beta‑1</li>
-      <li><strong>Licença:</strong> DALA CURE OS – Livre Ético-Comunitário</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>🔟 Frase-Síntese</h2>
-    <p class="quote">“Eu não modifico a vida — eu restauro o que ela sabia ser.”</p>
-  </div>
-
-</div>
-
-<footer>
-  <p>&copy; 2025 — Sistema DALA CURE OS • Criado por Dala De Carvalho</p>
-</footer>
-
+      const resElem = document.getElementById("resultado-simulador");
+      resElem.textContent = resultado;
+      resElem.style.color = cor;
+    }
+  </script>
 </body>
 </html>
